@@ -10,6 +10,8 @@ public class InputController : MonoBehaviour
     public enum EnKey{
         enKey_PlayerLeft,
         enKey_PlayerRight,
+        enKey_PlayerUp,
+        enKey_PlayerDown,
         enKey_PlayerJump,
         enKey_Decision
     };
@@ -49,6 +51,12 @@ public class InputController : MonoBehaviour
                 break;
             case EnKey.enKey_PlayerRight:
                 result = Input.GetKey(KeyCode.D);
+                break;
+            case EnKey.enKey_PlayerUp:
+                result = Input.GetKey(KeyCode.W);
+                break;
+            case EnKey.enKey_PlayerDown:
+                result = Input.GetKey(KeyCode.S);
                 break;
             case EnKey.enKey_PlayerJump:
                 result = Input.GetKey(KeyCode.Space);

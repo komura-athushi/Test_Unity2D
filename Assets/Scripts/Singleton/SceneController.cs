@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     private static SceneController instance = null;
-  
     public enum EnScene{
         enScene_Game,
         enScene_Title
@@ -39,16 +38,16 @@ public class SceneController : MonoBehaviour
                 if(InputController.GetInstance().GetIsDownKey(InputController.EnKey.enKey_Decision))
                 {
                     // 次のシーンを非同期で読み込み
-                    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("NextScene");
-                    enScene = EnScene.enScene_Title;
+                    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SampleScene");
+                    enScene = EnScene.enScene_Game;
                 }
                 break;
             case EnScene.enScene_Title:
                 if(InputController.GetInstance().GetIsDownKey(InputController.EnKey.enKey_Decision))
                 {
                     // 次のシーンを非同期で読み込み
-                    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SampleScene");
-                    enScene = EnScene.enScene_Game;
+                    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("NextScene");
+                    enScene = EnScene.enScene_Title;
                 }
             break;
         }
