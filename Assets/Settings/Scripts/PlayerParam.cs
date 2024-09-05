@@ -7,7 +7,11 @@ using UnityEngine;
 public class PlayerParam : ScriptableObject
 {
     public float MoveSpeed;
-    public float JumpPower;
+    public float BigJumpPower;
+    public float SmallJumpPower;
+    public float SmallJumpTime;
+    public float ReduceMoveSpeedForJumping;
+    public float AirResistanceForJumping;
     public string Id;
     public int Hp;
     public int Attack;

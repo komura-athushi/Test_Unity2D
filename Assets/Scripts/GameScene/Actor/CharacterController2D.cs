@@ -31,7 +31,8 @@ public class CharacterController2D : MonoBehaviour
 
         grounded = false;
 
-        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
+        // レイヤー設定もできるっぽい
+        Collider2D[] hits = Physics2D.OverlapBoxAll(position, boxCollider.size, 0);
 
         foreach (Collider2D hit in hits)
         {

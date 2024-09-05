@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f010843edefaa2488d72b11b084faf1, type: 3}
   m_Name: GameParam
   m_EditorClassIdentifier: 
-  Gravity: 0.01
+  Gravity: 0.008
   CameraAddPos: {x: 7, y: 1, z: -10}

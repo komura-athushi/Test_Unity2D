@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b748c64e17a4a4bbf874eb84f15dc0, type: 3}
   m_Name: PlayerParam
   m_EditorClassIdentifier: 
-  MoveSpeed: 0.07
-  JumpPower: 0.17
+  MoveSpeed: 0.09
+  BigJumpPower: 0.2
+  SmallJumpPower: 0.13
+  SmallJumpTime: 0.081
+  ReduceMoveSpeedForJumping: 0.4
+  AirResistanceForJumping: 0.995
   Id: 
   Hp: 0
   Attack: 0

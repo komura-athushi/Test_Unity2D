@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
     PlayerInput input;
 
     public float GetMoveSpeed() { return moveSpeed;}
-    public float GetJumpPower() { return jumpPower;}
     public float GetGravity() {return gravity; }
     public bool IsAttacking() {return isAttacking; }
     public bool IsZeroGraviting() { return isZeroGraviting; }
@@ -31,7 +30,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         moveSpeed = DataController.GetPlayerParam().MoveSpeed;
-        jumpPower = DataController.GetPlayerParam().JumpPower;
         gravity = DataController.GetGameParam().Gravity;
         // 自身にアタッチされているCharacterControllerを取得する
         characterController2D = GetComponent<CharacterController2D>();
@@ -45,19 +43,26 @@ public class Player : MonoBehaviour
     {
         ExecuteController();
     }
-    public void MovePlayer(Vector2 moveSpeed)
+    public void MovePlayer(Vector2 velocity)
     {
-        velocity = moveSpeed;
+        this.velocity = velocity;
         characterController2D.Move(velocity);
     }
 
     void ExecuteController()
     {
+        if(currentController.GetType().Name == "JumpController") 
+        {
+            var jc = (JumpController)currentController;
+            print(jc.inputJumpTimer);
+        }
+
         input.HandleInput();
         currentController.Execute();
         IController newController = currentController.ChangeState();
-        if(currentController.GetType() != newController.GetType())
+        if(! ReferenceEquals(currentController, newController))
         {
+            print(newController.GetType());
             currentController.Exit();
             beforeController = currentController;
             currentController = newController;
