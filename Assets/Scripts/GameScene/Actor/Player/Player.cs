@@ -51,18 +51,11 @@ public class Player : MonoBehaviour
 
     void ExecuteController()
     {
-        if(currentController.GetType().Name == "JumpController") 
-        {
-            var jc = (JumpController)currentController;
-            print(jc.inputJumpTimer);
-        }
-
         input.HandleInput();
         currentController.Execute();
         IController newController = currentController.ChangeState();
         if(! ReferenceEquals(currentController, newController))
         {
-            print(newController.GetType());
             currentController.Exit();
             beforeController = currentController;
             currentController = newController;
